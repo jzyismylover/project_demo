@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/kefu.js"></script>
+</head>
+<body>
+<script>
+var kefu = new Kefu({
+    index: "/",
+    tel: "123459789",//电话号码
+    qq: "123489789",//在线QQ
+    wechatPerson: {
+        state: true,// true是开启个人微信二维码, false不开启
+        imgURL: "./imgs/2wm.png" //图片路径
+    },
+    wechatofficial: {
+        state: true,// true是开启微信公众号二维码, false不开启
+        imgURL: "./imgs/2wm.png" //图片路径
+    }//微信公众号
+});
+</script>
+</body>
+</html>

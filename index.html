@@ -1,0 +1,755 @@
+﻿<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="images/fv-icon.png" type="image/gif">
+    <title>Jetrip</title>
+    <!--bootstrap.min.css-->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!--animate.css-->
+    <link rel="stylesheet" href="css/animate.min.css">
+    <!--fontawesome 5-->
+    <link rel="stylesheet" href="css/all.min.css">
+    <!--slicknav.css-->
+    <link rel="stylesheet" href="css/slicknav.min.css">
+    <!--slickslider.css-->
+    <link rel="stylesheet" href="css/slick-theme.css">
+    <link rel="stylesheet" href="css/slick.css">
+    <!-- lity.css -->
+    <link rel="stylesheet" href="css/lity.min.css">
+    <!-- Custom.css -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/jequery_demo.css">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- import Vue before Element -->
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <!-- import JavaScript -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <style>
+        .BMap_cpyCtrl {
+            display: none;
+        }
+
+        .anchorBL {
+            display: none;
+        }
+
+        /* .cover {
+            position: absolute;
+            width: 100%;
+            height: 850px;
+            top: 0px;
+            left: 0px;
+            background-color: #212121;
+            z-index: 98;
+            opacity: 0.6;
+        } */
+
+        .text {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+    </style>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="http://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="http://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader"></div>
+    <!-- Start-Header-Section -->
+    <div id="home">
+        <header class="header-type-three" style="z-index: 200;">
+            <!-- Topbar-start-area -->
+            <div class="header_top_area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="contact_wrapper_top">
+                                <ul class="header_top_contact">
+                                    <li><i class="fa fa-phone" aria-hidden="true"></i>+123-456-7890</li>
+                                    <li><i class="fa fa-envelope" aria-hidden="true"></i>info@yourcompany.com</li>
+                                </ul>
+                                <div class="topbar-icon">
+                                    <ul>
+                                        <li><a href="#"><i class="fab fa-behance"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-google"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End-Topbar-area -->
+            <!-- Menu-start-area -->
+            <div class="header-fixed header-one">
+                <div class="container">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <a class="navbar-brand" href="index.html">
+                            <img src="images/logo-wht.png" alt="logo">
+                        </a>
+                        <div class="collapse navbar-collapse my-lg-0" id="navbarNav">
+                            <ul class="navbar-nav">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="index.html">Home</a>
+                                </li>
+                                <li class="nav-item ">
+                                    <a class="nav-link" href="about.html">About Us</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="product-list.html">Product</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="news.html">News</a>
+
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="contact.html">Contact Us</a>
+                                </li>
+                            </ul>
+                            <div class="log-btn">
+                                <div id="search-btn">
+                                    <form>
+                                        <input id="search" name="search" type="text" placeholder="Search here...">
+                                        <a href="#" class="fa fa-search"></a>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                    <div class="mobile-menu" data-logo="images/logo-wht.png"></div>
+                </div>
+            </div>
+            <!-- End-Menu-area-->
+        </header>
+        <!-- Start-Main-Section -->
+
+        <main class="hero-slide-three">
+            <div class="item" v-for="(item,index) in list" :key="index">
+                <img :src="item.url" alt="hero-1">
+                <div class="hero-slider__content-wrapper">
+                    <div class="container">
+                        <div class="row justify-content-lg-center">
+                            <div class="col-lg-10 text-center">
+                                <div class="hero-slider__content">
+                                    <h2 class="hero-slider__title">Take Your Dream</h2>
+                                    <p class="hero-slider__text">Et ea invidunt magna dolores ut et magna eos sit erat.
+                                        Dolor et kasd takimata no duo gubergren justo ut nonumy, voluptua accusam at
+                                        clita
+                                        ut. Rebum clita accusam nonumy.</p>
+                                    <a class="hero-slider__btn active mr-2" href="about.html"> Get Start</a>
+                                    <a class="hero-slider__btn" href="contact.html"> Contact Us</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- <div class="cover"></div> -->
+        <!--用 elemetn -ui去实现-->
+        <!-- <template>
+            <div>
+                <el-carousel height="850px">
+                    <el-carousel-item class="item" v-for="(item,index) in banner" :key="index">
+                        <img :src="item.url" alt="" style="height: 100%;">
+                    </el-carousel-item>
+                </el-carousel>
+            </div>
+        </template> -->
+        <!-- End-Main-Section -->
+
+        <!-- about-area -->
+        <section class="ws-section-spacing">
+            <div class="container">
+                <div id="myCollapsibleExample"><a href="#demo" data-toggle="collapse" style="font-size: 30px;">Click and
+                        See
+                        The Vadio <i class="more-less fas fa-angle-down"></i></a></div>
+                <div id="demo" class="collapse">
+                    <div class="row">
+                        <div class="col-lg-6" style="float: left;">
+                            <div class="video-img-box">
+                                <img src="images/gallery-5.jpg" alt="">
+                                <div class="pulse-box">
+                                    <a href="https://www.youtube.com/watch?v=XSGBVzeBUbk" data-lity
+                                        class="pulse-icon"><i class="fas fa-play"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6" style="float:right">
+                            <div class="about-content">
+                                <h2>We make the best for all our customers.</h2>
+                                <p>Ut et justo invidunt et sit takimata dolor accusam erat. Duo amet consetetur diam
+                                    stet vero
+                                    dolor no est accusam, aliquyam dolor vero sit sea. No justo a consetetur at
+                                    lorem clita sit
+                                    ea. Dolor sed clita dolor ea elitr sed elitr</p>
+                                <p>Tempor dolor vero dolor sadipscing eos erat dolor sanctus aliquyam et, et justo
+                                    labore lorem
+                                    kasd clita consetetur no no ut erat dolor. </p>
+
+                                <a href="about.html" class="read-btn">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End-about-area -->
+        <!-- service-section -->
+        <section class="service-one ws-section-spacing bg-gray">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-sm-6">
+                        <div class="center-title ">
+                            <h2 class="title">Why Choose Us</h2>
+                            <h4 class="sub-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                                eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua minim veniam.</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-12">
+                                <div class="servicebox-one service-type-two">
+                                    <div class="service-box-icon">title</div>
+                                    <h3 class="service-box-title">Best Travel Agent</h3>
+                                    <p class="service-box-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    </p>
+
+                                </div>
+                            </div>
+                            <!-- item -->
+                            <div class="col-lg-4 col-md-4 col-sm-12">
+                                <div class="servicebox-one service-type-two">
+                                    <div class="service-box-icon"></div>
+                                    <h3 class="service-box-title">Best Price </h3>
+                                    <p class="service-box-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                                        .
+                                    </p>
+
+                                </div>
+                            </div>
+                            <!-- item -->
+                            <div class="col-lg-4 col-md-4 col-sm-12">
+                                <div class="servicebox-one service-type-two">
+                                    <div class="service-box-icon"></div>
+                                    <h3 class="service-box-title">Trust & Safety</h3>
+                                    <p class="service-box-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    </p>
+
+                                </div>
+                            </div>
+                            <!-- item -->
+                            <div class="col-lg-4 col-md-4 col-sm-12">
+                                <div class="servicebox-one service-type-two">
+                                    <div class="service-box-icon"></div>
+                                    <h3 class="service-box-title">Amazing Tour</h3>
+                                    <p class="service-box-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    </p>
+
+                                </div>
+                            </div>
+                            <!-- item -->
+                            <div class="col-lg-4 col-md-4 col-sm-12">
+                                <div class="servicebox-one service-type-two">
+                                    <div class="service-box-icon"></div>
+                                    <h3 class="service-box-title">Ticket Booking</h3>
+                                    <p class="service-box-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    </p>
+
+                                </div>
+                            </div>
+                            <!-- item -->
+                            <div class="col-lg-4 col-md-4 col-sm-12">
+                                <div class="servicebox-one service-type-two">
+                                    <div class="service-box-icon"></div>
+                                    <h3 class="service-box-title">Hotel Booking</h3>
+                                    <p class="service-box-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                                        .
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End-service-section -->
+        <!-- Counter-section -->
+        <section class="ws-section-spacing bg-img-counter">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="counter-box">
+                            <span class="count-icon"><i class="fas fa-user"></i></span>
+                            <h2 class="counter">2240</h2>
+                            <h3 class="count-title">Customers</h3>
+                        </div>
+                    </div>
+                    <!-- item -->
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="counter-box">
+                            <span class="count-icon"><i class="fas fa-umbrella-beach"></i></span>
+                            <h2 class="counter">540</h2>
+                            <h3 class="count-title">Pruductions</h3>
+                        </div>
+                    </div>
+                    <!-- item -->
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="counter-box">
+                            <span class="count-icon"><i class="fas fa-luggage-cart"></i></span>
+                            <h2 class="counter">3340</h2>
+                            <h3 class="count-title">Years</h3>
+                        </div>
+                    </div>
+                    <!-- item -->
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="counter-box">
+                            <span class="count-icon"><i class="fas fa-life-ring"></i></span>
+                            <h2 class="counter">240</h2>
+                            <h3 class="count-title">Person</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End-Counter-section -->
+        <!-- Start-Package-Section 商品的价格和信息-->
+        <section class="ws-section-spacing bg-gray">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="center-title ">
+                            <h2 class="title">不科学吧</h2>
+                            <h4 class="sub-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                                eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua minim veniam.</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="row masonry-item">
+                    <div class="col-lg-4 col-md-6 col-sm-12 masonry" v-for="(item,index) in banner" :key="index">
+                        <div class="package-one">
+                            <div class="img-wapper">
+                                <img :src="item.url" alt="package-img">
+                            </div>
+                            <div class="package-content">
+                                <h3>Dubai – All Stunning Places</h3>
+                                <p>4 Days, 5 Nights Start From <span>$500</span></p>
+                                <ul class="ct-action">
+                                    <li><a href="product-list.html" class="booking-btn">Book Now</a>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End-Package-Section -->
+
+
+        <!-- Testimonial-section -->
+        <section class="same-section-spacing  bg-gray Testimonial-one">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="center-title ">
+                            <h2 class="title">What Travellers Say About Us</h2>
+                            <h4 class="sub-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                                eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua minim veniam.</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="testi-slide-one">
+                            <div class="item" v-for="(item,index) in list" :key="index">
+                                <img :src="item.url" alt="testi-one">
+                                <div class="testi-content">
+                                    <p>Nonumy et dolor erat clita voluptua est gubergren consetetur, ea kasd
+                                        lorem set dolores sit voluptua. Eos dollar sea amet erat sed.</p>
+                                    <span class="rating"> <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i></span>
+                                    <h4>Daniel Baci</h4>
+                                    <p>Thailand Trip </p>
+                                </div>
+                            </div>
+                            <!-- <div class="item">
+                                <img src="images/testi-3.jpg" alt="testi-one">
+                                <div class="testi-content">
+                                    <p>Nonumy et dolor erat clita voluptua est gubergren consetetur, ea kasd
+                                        lorem set dolores sit voluptua. Eos dollar sea amet erat sed.</p>
+                                    <span class="rating"> <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i></span>
+                                    <h4>Jhonthan Smith</h4>
+                                    <p>London Trip</p>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <img src="images/testi-2.jpg" alt="testi-one">
+                                <div class="testi-content">
+                                    <p>Nonumy et dolor erat clita voluptua est gubergren consetetur, ea kasd
+                                        lorem set dolores sit voluptua. Eos dollar sea amet erat sed.</p>
+                                    <span class="rating"> <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i></span>
+                                    <h4>Emily Joe</h4>
+                                    <p>USA</p>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <img src="images/testi-4.jpg" alt="testi-one">
+                                <div class="testi-content">
+                                    <p>Nonumy et dolor erat clita voluptua est gubergren consetetur, ea kasd
+                                        lorem set dolores sit voluptua. Eos dollar sea amet erat sed.</p>
+                                    <span class="rating"> <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i></span>
+                                    <h4>John Doe</h4>
+                                    <p>USA Trip </p>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End-Testimonial-section -->
+
+
+        <section class="same-section-spacing bg-gray">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="center-title ">
+                            <h2 class="title">Our Partners</h2>
+                            <h4 class="sub-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                                eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua minim veniam.</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <!--底部轮播图-->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="client-slide">
+                            <div class="item">
+                                <div class="img-wapper">
+                                    <img src="images/client2.png" alt="">
+                                </div>
+                            </div>
+                            <!-- item -->
+                            <div class="item">
+                                <div class="img-wapper">
+                                    <img src="images/client2.png" alt="">
+                                </div>
+                            </div>
+                            <!-- item -->
+                            <div class="item">
+                                <div class="img-wapper">
+                                    <img src="images/client3.png" alt="">
+                                </div>
+                            </div>
+                            <!-- item -->
+                            <div class="item">
+                                <div class="img-wapper">
+                                    <img src="images/client4.png" alt="">
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="img-wapper">
+                                    <img src="images/client1.png" alt="">
+                                </div>
+                            </div>
+                            <!-- item -->
+                            <div class="item">
+                                <div class="img-wapper">
+                                    <img src="images/client2.png" alt="">
+                                </div>
+                            </div>
+                            <!-- item -->
+                            <div class="item">
+                                <div class="img-wapper">
+                                    <img src="images/client3.png" alt="">
+                                </div>
+                            </div>
+                            <!-- item -->
+                            <div class="item">
+                                <div class="img-wapper">
+                                    <img src="images/client4.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End-Partner-section -->
+        <!-- Footer-section -->
+        <footer class="ws-section-spacing img-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-7 col-sm-12">
+                        <div class="footer-widget">
+                            <div class="title">
+                                <h3>About Us</h3>
+                            </div>
+                            <p>Ipsum consetetur invidunt magna tempor eirmod takimata ea rebum. Sed labore sit
+                                sadipscing
+                                magna. Accusam diam ipsum duo stet no diam sadipscing . Sed justo ea eos vero
+                                eirmod gubergren magna.</p>
+                            <ul class="footer-icon">
+                                <li><a href="#"><i class="fab fa-behance"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-google"></i></a></li>
+                            </ul>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="footer-widget">
+                            <div class="title">
+                                <h3>Contact Us</h3>
+                            </div>
+                            <p></p>
+                        </div>
+                    </div>
+                    <!-- <div class="col-lg-5 col-md-5 col-sm-12">
+                        <div style="width:400rpx;height:300rpx;border:#ccc solid 1px;font-size:12px" id="map"></div>
+                    </div> -->
+                </div>
+            </div>
+        </footer>
+        <!-- copyright-area -->
+        <div class="footer-bottom text-white">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="left-text">
+                            Copyright © 2019 | All Rights <a href="index.html">Reserved</a>.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to top button -->
+    <a id="btn-to-top" class="show"></a>
+    <!-- Jquery.min.js-->
+    <script src="js/jquery.1.12.4.js"></script>
+    <!--bootstrap.min.js-->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap-datepicker.js"></script>
+    <!--slicknav.min.js-->
+    <script src="js/jquery.slicknav.min.js"></script>
+    <!--slickslider.min.js-->
+    <script src="js/slick.min.js"></script>
+    <!-- counterup.min.js -->
+    <script src="js/waypoints.min.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <!-- magnific-popup.js -->
+    <script src="js/lity.min.js"></script>
+    <!-- isotope.pkgd.min.js -->
+    <script src="js/isotope.pkgd.min.js"></script>
+    <script src="js/imagesloaded.js"></script>
+    <script src="nav/js/kefu.js"></script>
+    <!--axious-->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!--qs-->
+    <script src="https://cdn.bootcss.com/qs/6.5.1/qs.min.js"></script>
+    <!--config-->
+    <script src="js/config.js"></script>
+    <!--侧边栏-->
+    <script>
+        var kefu = new Kefu({
+            index: "index.html",
+            tel: "123459789", //电话号码
+            qq: "123489789", //在线QQ
+            wechatPerson: {
+                state: true, // true是开启个人微信二维码, false不开启
+                imgURL: "" //图片路径
+            },
+            wechatofficial: {
+                state: true, // true是开启微信公众号二维码, false不开启
+                imgURL: "" //图片路径
+            } //微信公众号
+        });
+    </script>
+    <!--数据交互-->
+    <script>
+        var home = new Vue({
+            el: '#home',
+            data: {
+                list: [{
+                        url: "http://121.37.204.235:8080/laboratory/image/image1591844535573.png",
+                        title: 'Take Your Dream',
+                        content: 'Et ea invidunt magna dolores ut et magna eos sit erat.Dolor et kasd takimata no duo gubergren justo ut nonumy, voluptua accusam atclita ut. Rebum clita accusam nonumy.'
+                    },
+                    {
+                        url: "http://121.37.204.235:8080/laboratory/image/image1591844535573.png",
+                        title: 'Take Your Dream',
+                        content: 'Et ea invidunt magna dolores ut et magna eos sit erat.Dolor et kasd takimata no duo gubergren justo ut nonumy, voluptua accusam atclita ut. Rebum clita accusam nonumy.'
+                    },
+
+                    {
+                        url: "http://121.37.204.235:8080/laboratory/image/image1591844535573.png",
+                        title: 'Take Your Dream',
+                        content: 'Et ea invidunt magna dolores ut et magna eos sit erat.Dolor et kasd takimata no duo gubergren justo ut nonumy, voluptua accusam atclita ut. Rebum clita accusam nonumy.'
+                    },
+                    {
+                        url: "http://121.37.204.235:8080/laboratory/image/image1591844535573.png",
+                        title: 'Take Your Dream',
+                        content: 'Et ea invidunt magna dolores ut et magna eos sit erat.Dolor et kasd takimata no duo gubergren justo ut nonumy, voluptua accusam atclita ut. Rebum clita accusam nonumy.'
+                    },
+                    {
+                        url: "http://121.37.204.235:8080/laboratory/image/image1591844535573.png",
+                        title: 'Take Your Dream',
+                        content: 'Et ea invidunt magna dolores ut et magna eos sit erat.Dolor et kasd takimata no duo gubergren justo ut nonumy, voluptua accusam atclita ut. Rebum clita accusam nonumy.'
+                    },
+                ],
+                banner: [],
+                setting: []
+            },
+            // created: function () {
+            //     //获取新闻列表
+            //     this.adminUrl = config.pathConfig.adminUrl
+            //     var url = config.pathConfig.path
+            //     axios({
+            //         url: "http://129.204.132.48:8080/laboratory/api/getnewslist",
+            //         method: 'post',
+            //         data: Qs.stringify({
+            //             offset: 1,
+            //             offsetsize: 6,
+            //         }),
+            //         headers: {
+            //             'content-type': 'application/x-www-form-urlencoded',
+            //         }
+            //     })
+            //         .then(response => {
+            //             var res = response.data;
+            //             console.log("获取新闻列表");
+            //             console.log(res);
+            //         });
+            //     //获取介绍信息
+            //     axios({
+            //             url: url + '/selectrecommend',
+            //             method: 'get'
+            //         })
+            //         .then(response => {
+            //             var res = response.data;
+            //             console.log("获取介绍信息");
+            //             console.log(res);
+            //             if (res.code == "200") {
+            //                 this.banner = res.data.banner;
+            //                 this.setting = res.data.setting;
+            //                 console.log(this.banner[0].url === this.list[0].url)
+            //             }
+            //         });
+            //     //获取在研项目信息
+            //     axios({
+            //         url: url + "/getotherlist",
+            //         method: "post",
+            //         data: Qs.stringify({
+            //             offset: 1,
+            //             offsetsize: 2,
+            //             type: "project",
+            //         }),
+            //     }).then(res => {
+            //         console.log("获取在研项目信息")
+            //         console.log(res)
+            //     })
+            //     //获取研究人员的信息
+            //     axios({
+            //         url: url + "/getresearcherlist",
+            //         method: 'post',
+            //         data: Qs.stringify({
+            //             offset: 1,
+            //             offsetsize: 3,
+            //         }),
+            //     }).then(res => {
+            //         console.log("获取在研人员")
+            //         console.log(res)
+            //     })
+            //     //获取公告接口
+            //     axios({
+            //         method: 'get',
+            //         url: "http://129.204.132.48:8080/laboratory/api/getnotice"
+            //     }).then(res => {
+            //         console.log("获取公告接口")
+            //         console.log(res)
+            //     })
+            // },
+
+            mounted() {
+                var url = config.pathConfig.path
+                axios({
+                    url: "http://121.37.204.235:8080/laboratory/api/selectrecommend",
+                    method: 'get'
+                }).then(response => {
+                    var res = response.data;
+                    console.log("获取介绍信息");
+                    console.log(res);
+                    if (res.code == "200") {
+                        this.banner = res.data.banner;
+                        this.setting = res.data.setting;
+                    }
+                });
+            },
+
+        })
+    </script>
+    <!--地图的cdn-->
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=xGwx4i4kOfTtkITnDITz87Pwh0pHo1AK">
+    </script>
+    <!-- <script src="js/positionMap.js"></script> -->
+    <!-- main.js -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
